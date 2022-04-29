@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculator</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="calc">
+            <h1>scientific calculator</h1>
+            <div class="inputs">
+                <div class="input-num">
+                    <input type="number" value="num" id="tbox" placeholder="Enter your number...">
+
+                </div>
+                <div class="buttons">
+                    <button class="clear" value="clear" onclick="document.getElementById('tbox').value =''">clear</button>
+                    <button class="backspace" value="backSpace" onclick="backSpace()">backspace</button>
+                </div>
+                <div class="flex-container">
+                    <button value="+" onclick="binaryOperator('+')">+</button>
+                    <button value="-" onclick="binaryOperator('-')" >-</button>
+                    <button  value="*" onclick="binaryOperator('*')">*</button>
+                    <button value="/" onclick="binaryOperator('/')">/</button>
+                    <button value="1" onclick="setValue('1')">1</button>
+                    <button value="2" onclick="setValue('2')">2</button>
+                    <button value="3" onclick="setValue('3')">3</button>
+                    <button value="4" onclick="setValue('4')">4</button>
+                    <button value="5" onclick="setValue('5')">5</button>
+                    <button value="6" onclick="setValue('6')">6</button>
+                    <button value="7" onclick="setValue('7')">7</button>
+                    <button value="8" onclick="setValue('8')" >8</button>
+                    <button value="9" onclick="setValue('9')" >9</button>
+                    <button value="0" onclick="setValue('0')">0</button>
+                    <button value=".." onclick="setValue('.')">.</button>
+                    <button value="=" onclick="equalOperator()">=</button>
+                     
+                    
+
+            
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <script>
+        var num1=0;
+            num2=0;
+            ans=0;
+            operator=0;
+
+      // function clearText() {
+          // document.getElementById("tbox").value="";
+           
+      // }
+       function backSpace(){
+           let str = document.getElementById("tbox").value;
+           document.getElementById("tbox").value =str.slice(0,str.length-1);
+       }
+       function setValue(value){
+           console.log(value);
+           document.getElementById("tbox").value=document.getElementById("tbox").value + value+ "";
+       }
+       function binaryOperator(op){
+           num1 = parseFloat(document.getElementById("tbox").value);
+           operator =op;
+           document.getElementById("tbox").value="0";
+       }
+       function equalOperator(){
+           num2 = parseFloat(document.getElementById("tbox").value);
+           if(operator=== "+") ans=num1+num2;
+           else if(operator === "-") ans=num1-num2;
+           else if(operator ==="*") ans=num1*num2;
+           else if(operator ==="/") ans=num1/num2;
+
+           document.getElementById("tbox").value=ans;
+       }
+
+    </script>
+</html>
